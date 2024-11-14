@@ -8,4 +8,5 @@ Det finns tre kommandon att använda för att köra programmet:
 Det kan vara bra att veta att innan man kan kryptera en fil så måste man ha genererat en krypteringsnyckel.
 
 Om du behöver hjälp direkt i terminalen så kan du använda kommandot:
+
 python Projekt.py -h
