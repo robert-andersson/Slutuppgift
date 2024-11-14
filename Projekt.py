@@ -3,19 +3,19 @@ import os
 from cryptography.fernet import Fernet
 
 ## Genererar och sparar en krypteringsnyckel ##
-def generate_key():
-    key = Fernet.generate_key()
-    with open("encryption.key", "wb") as key_file:
-        key_file.write(key)
-    print("Nyckel genererad och sparad som 'encryption.key'.")
+def generate_key():  ## Definierar en funktion med namnet 'generate_key ##
+    key = Fernet.generate_key()  ## Skapar en nyckel med fernet och lagrar den i variablen 'key' ##
+    with open("encryption.key", "wb") as key_file:  ## Öppnar en fil med namnet 'encryption.key' i binärt skrivläge ##
+        key_file.write(key)  ## Skriver den genererade nyckel till filen 'key_file' ##
+    print("Nyckel genererad och sparad som 'encryption.key'.")  ## Skriver ut det i printen när du genererat en nyckel ##
 
 ## Ladda nyckeln från filen 'encryption.key' ##
-def load_key():
-    with open("encryption.key", "rb") as key_file:
-        return key_file.read()
+def load_key():  ## Definierar en funktion med namnet 'Load_key
+    with open("encryption.key", "rb") as key_file:  ## Öppnar 'encryption.key' i binärt läsläge och läser in nyckeln ##
+        return key_file.read()  ## Läser in och retunerar nyckeln från filen ##
 
 ## Krypterar och gör om filen till en krypterad fil ##
-def encrypt_file(file_path, key):
+def encrypt_file(file_path, key):  ## Definierar en funktion med namnet 'encrypt_file'. Tar emot filsökväg och krypteringsnyckeln ##
     with open(file_path, "rb") as file:
         encrypted_data = Fernet(key).encrypt(file.read())
     with open(file_path + ".encrypted", "wb") as file:
